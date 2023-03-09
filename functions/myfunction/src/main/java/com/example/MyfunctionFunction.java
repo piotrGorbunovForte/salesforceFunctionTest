@@ -35,7 +35,7 @@ public class MyfunctionFunction implements SalesforceFunction<FunctionInput, Fun
               .setEnvironment(Environment.SANDBOX);
       }catch (AmazonPayClientException e) {
             return new FunctionOutput(e.printStackTrace());
-            
+
 //           e.printStackTrace();
       }
       System.out.println("111 payConfiguration=" + payConfiguration);
