@@ -50,6 +50,11 @@
             <version>1.2.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>software.amazon.pay</groupId>
+            <artifactId>amazon-pay-api-sdk-java</artifactId>
+            <version>2.5.1</version>
+        </dependency>
     </dependencies>
 
     <build>

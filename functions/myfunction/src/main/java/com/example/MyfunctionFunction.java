@@ -10,6 +10,11 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.amazon.pay.api.*;
+
+import com.amazon.pay.api.exceptions.AmazonPayClientException;
+import com.amazon.pay.api.types.Environment;
+import com.amazon.pay.api.types.Region;
 
 /**
  * Describe MyfunctionFunction here.
@@ -20,6 +25,19 @@ public class MyfunctionFunction implements SalesforceFunction<FunctionInput, Fun
   @Override
   public FunctionOutput apply(InvocationEvent<FunctionInput> event, Context context)
       throws Exception {
+
+      PayConfiguration payConfiguration = null;
+      try {
+          payConfiguration = new PayConfiguration()
+              .setPublicKeyId("YOUR_PUBLIC_KEY_ID")
+              .setRegion(Region.YOUR_REGION_CODE)
+              .setPrivateKey("YOUR_PRIVATE_KEY_STRING")
+              .setEnvironment(Environment.SANDBOX);
+      }catch (AmazonPayClientException e) {
+          e.printStackTrace();
+      }
+      System.out.println('111 payConfiguration=' + payConfiguration);
+
 
     List<RecordWithSubQueryResults> records =
         context.getOrg().get().getDataApi().query("SELECT Id, Name FROM Account").getRecords();
