@@ -35,10 +35,10 @@ public class MyfunctionFunction implements SalesforceFunction<FunctionInput, Fun
               .setEnvironment(Environment.SANDBOX);
       }catch (AmazonPayClientException e) {
             return new FunctionOutput(e.printStackTrace());
-
 //           e.printStackTrace();
+
       }
-      System.out.println("111 payConfiguration=" + payConfiguration);
+      System.out.println("1111 payConfiguration=" + payConfiguration);
 
 
     List<RecordWithSubQueryResults> records =
