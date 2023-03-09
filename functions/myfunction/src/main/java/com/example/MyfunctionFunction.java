@@ -30,13 +30,14 @@ public class MyfunctionFunction implements SalesforceFunction<FunctionInput, Fun
       try {
           payConfiguration = new PayConfiguration()
               .setPublicKeyId("YOUR_PUBLIC_KEY_ID")
-              .setRegion(Region.YOUR_REGION_CODE)
+              .setRegion(Region.NA)
               .setPrivateKey("YOUR_PRIVATE_KEY_STRING")
               .setEnvironment(Environment.SANDBOX);
       }catch (AmazonPayClientException e) {
-          e.printStackTrace();
+            return new FunctionOutput(e.printStackTrace());
+//           e.printStackTrace();
       }
-      System.out.println('111 payConfiguration=' + payConfiguration);
+      System.out.println("111 payConfiguration=" + payConfiguration);
 
 
     List<RecordWithSubQueryResults> records =
